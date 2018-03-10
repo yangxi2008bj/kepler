@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.SysUser" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="his_code" property="hisCode" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.SysUser" >
+    insert into sys_user (seq_id, user_code, user_password, 
+      user_name, his_code, create_time, 
+      create_person, update_time, update_person
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{userCode,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{hisCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.SysUser" >
+    update sys_user
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      his_code = #{hisCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, user_code, user_password, user_name, his_code, create_time, create_person, 
+    update_time, update_person
+    from sys_user
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, user_code, user_password, user_name, his_code, create_time, create_person, 
+    update_time, update_person
+    from sys_user
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from sys_user where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from sys_user where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="userCode!=null" >
+      and user_code = #{userCode,jdbcType=VARCHAR}
+    </if>
+    <if test="userPassword!=null" >
+      and user_password = #{userPassword,jdbcType=VARCHAR}
+    </if>
+    <if test="userName!=null" >
+      and user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="hisCode!=null" >
+      and his_code = #{hisCode,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <delete id="deleteAll" >
+    delete from sys_user
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.SysUser" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into sys_user (seq_id, user_code, user_password, 
+      user_name, his_code, create_time, 
+      create_person, update_time, update_person
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{userCode,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{hisCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into sys_user (user_code,user_password,user_name,his_code,create_time,create_person,update_time,update_person ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.userCode},#{item.userPassword},#{item.userName},#{item.hisCode},#{item.createTime},#{item.createPerson},#{item.updateTime},#{item.updatePerson})</foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.SysUser" >
+    update sys_user set
+    <trim suffixOverrides="," >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="hisCode != null" >
+        his_code = #{hisCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.SysUser" >
+    select * from sys_user where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="userCode!=null" >
+      and user_code = #{userCode,jdbcType=VARCHAR}
+    </if>
+    <if test="userPassword!=null" >
+      and user_password = #{userPassword,jdbcType=VARCHAR}
+    </if>
+    <if test="userName!=null" >
+      and user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="hisCode!=null" >
+      and his_code = #{hisCode,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.SysUser" >
+    select count(0) from sys_user where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="userCode!=null" >
+      and user_code = #{userCode,jdbcType=VARCHAR}
+    </if>
+    <if test="userPassword!=null" >
+      and user_password = #{userPassword,jdbcType=VARCHAR}
+    </if>
+    <if test="userName!=null" >
+      and user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="hisCode!=null" >
+      and his_code = #{hisCode,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

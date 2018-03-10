@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.CatCodeMappingMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.CatCodeMapping" >
+    <result column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="cate_name" property="cateName" jdbcType="VARCHAR" />
+    <result column="cate_code" property="cateCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.CatCodeMapping" >
+    insert into cat_code_mapping (seq_id, cate_name, cate_code
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{cateName,jdbcType=VARCHAR}, #{cateCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, cate_name, cate_code
+    from cat_code_mapping
+  </select>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.CatCodeMapping" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into cat_code_mapping (seq_id, cate_name, cate_code
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{cateName,jdbcType=VARCHAR}, #{cateCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into cat_code_mapping (cate_name,cate_code ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.cateName},#{item.cateCode})</foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysAttachmentMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.SysAttachment" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="use_type" property="useType" jdbcType="VARCHAR" />
+    <result column="source_type" property="sourceType" jdbcType="VARCHAR" />
+    <result column="module_key" property="moduleKey" jdbcType="VARCHAR" />
+    <result column="file_name" property="fileName" jdbcType="VARCHAR" />
+    <result column="file_type" property="fileType" jdbcType="VARCHAR" />
+    <result column="length" property="length" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_attachment
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" >
+    insert into sys_attachment (seq_id, company_name, use_type, 
+      source_type, module_key, file_name, 
+      file_type, length, create_time, 
+      create_person, update_time, update_person, 
+      url)
+    values (#{seqId,jdbcType=BIGINT}, #{companyName,jdbcType=VARCHAR}, #{useType,jdbcType=VARCHAR}, 
+      #{sourceType,jdbcType=VARCHAR}, #{moduleKey,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=VARCHAR}, #{length,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
+      #{url,jdbcType=LONGVARBINARY})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" >
+    update sys_attachment
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      use_type = #{useType,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      module_key = #{moduleKey,jdbcType=VARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      file_type = #{fileType,jdbcType=VARCHAR},
+      length = #{length,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR},
+      url = #{url,jdbcType=LONGVARBINARY}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, company_name, use_type, source_type, module_key, file_name, file_type, 
+    length, create_time, create_person, update_time, update_person, url
+    from sys_attachment
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, company_name, use_type, source_type, module_key, file_name, file_type, 
+    length, create_time, create_person, update_time, update_person, url
+    from sys_attachment
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from sys_attachment where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from sys_attachment where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="companyName!=null" >
+      and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="useType!=null" >
+      and use_type = #{useType,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceType!=null" >
+      and source_type = #{sourceType,jdbcType=VARCHAR}
+    </if>
+    <if test="moduleKey!=null" >
+      and module_key = #{moduleKey,jdbcType=VARCHAR}
+    </if>
+    <if test="fileName!=null" >
+      and file_name = #{fileName,jdbcType=VARCHAR}
+    </if>
+    <if test="fileType!=null" >
+      and file_type = #{fileType,jdbcType=VARCHAR}
+    </if>
+    <if test="length!=null" >
+      and length = #{length,jdbcType=BIGINT}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <delete id="deleteAll" >
+    delete from sys_attachment
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into sys_attachment (seq_id, company_name, use_type, 
+      source_type, module_key, file_name, 
+      file_type, length, create_time, 
+      create_person, update_time, update_person, 
+      url)
+    values (#{seqId,jdbcType=BIGINT}, #{companyName,jdbcType=VARCHAR}, #{useType,jdbcType=VARCHAR}, 
+      #{sourceType,jdbcType=VARCHAR}, #{moduleKey,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=VARCHAR}, #{length,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
+      #{url,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into sys_attachment (company_name,use_type,source_type,module_key,file_name,file_type,length,create_time,create_person,update_time,update_person ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.companyName},#{item.useType},#{item.sourceType},#{item.moduleKey},#{item.fileName},#{item.fileType},#{item.length},#{item.createTime},#{item.createPerson},#{item.updateTime},#{item.updatePerson})</foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" >
+    update sys_attachment set
+    <trim suffixOverrides="," >
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="useType != null" >
+        use_type = #{useType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null" >
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleKey != null" >
+        module_key = #{moduleKey,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        file_type = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        length = #{length,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" >
+    select * from sys_attachment where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="companyName!=null" >
+      and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="useType!=null" >
+      and use_type = #{useType,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceType!=null" >
+      and source_type = #{sourceType,jdbcType=VARCHAR}
+    </if>
+    <if test="moduleKey!=null" >
+      and module_key = #{moduleKey,jdbcType=VARCHAR}
+    </if>
+    <if test="fileName!=null" >
+      and file_name = #{fileName,jdbcType=VARCHAR}
+    </if>
+    <if test="fileType!=null" >
+      and file_type = #{fileType,jdbcType=VARCHAR}
+    </if>
+    <if test="length!=null" >
+      and length = #{length,jdbcType=BIGINT}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" >
+    select count(0) from sys_attachment where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="companyName!=null" >
+      and company_name = #{companyName,jdbcType=VARCHAR}
+    </if>
+    <if test="useType!=null" >
+      and use_type = #{useType,jdbcType=VARCHAR}
+    </if>
+    <if test="sourceType!=null" >
+      and source_type = #{sourceType,jdbcType=VARCHAR}
+    </if>
+    <if test="moduleKey!=null" >
+      and module_key = #{moduleKey,jdbcType=VARCHAR}
+    </if>
+    <if test="fileName!=null" >
+      and file_name = #{fileName,jdbcType=VARCHAR}
+    </if>
+    <if test="fileType!=null" >
+      and file_type = #{fileType,jdbcType=VARCHAR}
+    </if>
+    <if test="length!=null" >
+      and length = #{length,jdbcType=BIGINT}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.PrdInsuranceMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="product_category" property="productCategory" jdbcType="VARCHAR" />
+    <result column="product_company" property="productCompany" jdbcType="VARCHAR" />
+    <result column="age_lower" property="ageLower" jdbcType="INTEGER" />
+    <result column="age_upper" property="ageUpper" jdbcType="INTEGER" />
+    <result column="product_tag" property="productTag" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="years" property="years" jdbcType="VARCHAR" />
+    <result column="product_status" property="productStatus" jdbcType="CHAR" />
+    <result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+    <result column="debit_year" property="debitYear" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prd_insurance
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" >
+    insert into prd_insurance (seq_id, product_category, product_company, 
+      age_lower, age_upper, product_tag, 
+      product_name, currency, years, 
+      product_status, role_code, debit_year, 
+      country, type, description
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{productCategory,jdbcType=VARCHAR}, #{productCompany,jdbcType=VARCHAR}, 
+      #{ageLower,jdbcType=INTEGER}, #{ageUpper,jdbcType=INTEGER}, #{productTag,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{years,jdbcType=VARCHAR}, 
+      #{productStatus,jdbcType=CHAR}, #{roleCode,jdbcType=VARCHAR}, #{debitYear,jdbcType=INTEGER}, 
+      #{country,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" >
+    update prd_insurance
+    set product_category = #{productCategory,jdbcType=VARCHAR},
+      product_company = #{productCompany,jdbcType=VARCHAR},
+      age_lower = #{ageLower,jdbcType=INTEGER},
+      age_upper = #{ageUpper,jdbcType=INTEGER},
+      product_tag = #{productTag,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=VARCHAR},
+      years = #{years,jdbcType=VARCHAR},
+      product_status = #{productStatus,jdbcType=CHAR},
+      role_code = #{roleCode,jdbcType=VARCHAR},
+      debit_year = #{debitYear,jdbcType=INTEGER},
+      country = #{country,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, product_category, product_company, age_lower, age_upper, product_tag, 
+    product_name, currency, years, product_status, role_code, debit_year, country, type, 
+    description
+    from prd_insurance
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, product_category, product_company, age_lower, age_upper, product_tag, 
+    product_name, currency, years, product_status, role_code, debit_year, country, type, 
+    description
+    from prd_insurance
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from prd_insurance where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from prd_insurance where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="productCategory!=null" >
+      and product_category = #{productCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="productCompany!=null" >
+      and product_company = #{productCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="ageLower!=null" >
+      and age_lower = #{ageLower,jdbcType=INTEGER}
+    </if>
+    <if test="ageUpper!=null" >
+      and age_upper = #{ageUpper,jdbcType=INTEGER}
+    </if>
+    <if test="productTag!=null" >
+      and product_tag = #{productTag,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+    <if test="currency!=null" >
+      and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="years!=null" >
+      and years = #{years,jdbcType=VARCHAR}
+    </if>
+    <if test="productStatus!=null" >
+      and product_status = #{productStatus,jdbcType=CHAR}
+    </if>
+    <if test="roleCode!=null" >
+      and role_code = #{roleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="debitYear!=null" >
+      and debit_year = #{debitYear,jdbcType=INTEGER}
+    </if>
+    <if test="country!=null" >
+      and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="type!=null" >
+      and type = #{type,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <delete id="deleteAll" >
+    delete from prd_insurance
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into prd_insurance (seq_id, product_category, product_company, 
+      age_lower, age_upper, product_tag, 
+      product_name, currency, years, 
+      product_status, role_code, debit_year, 
+      country, type, description
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{productCategory,jdbcType=VARCHAR}, #{productCompany,jdbcType=VARCHAR}, 
+      #{ageLower,jdbcType=INTEGER}, #{ageUpper,jdbcType=INTEGER}, #{productTag,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{years,jdbcType=VARCHAR}, 
+      #{productStatus,jdbcType=CHAR}, #{roleCode,jdbcType=VARCHAR}, #{debitYear,jdbcType=INTEGER}, 
+      #{country,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into prd_insurance (product_category,product_company,age_lower,age_upper,product_tag,product_name,currency,years,product_status,role_code,debit_year,country,type ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.productCategory},#{item.productCompany},#{item.ageLower},#{item.ageUpper},#{item.productTag},#{item.productName},#{item.currency},#{item.years},#{item.productStatus},#{item.roleCode},#{item.debitYear},#{item.country},#{item.type})</foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" >
+    update prd_insurance set
+    <trim suffixOverrides="," >
+      <if test="productCategory != null" >
+        product_category = #{productCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="productCompany != null" >
+        product_company = #{productCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="ageLower != null" >
+        age_lower = #{ageLower,jdbcType=INTEGER},
+      </if>
+      <if test="ageUpper != null" >
+        age_upper = #{ageUpper,jdbcType=INTEGER},
+      </if>
+      <if test="productTag != null" >
+        product_tag = #{productTag,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="years != null" >
+        years = #{years,jdbcType=VARCHAR},
+      </if>
+      <if test="productStatus != null" >
+        product_status = #{productStatus,jdbcType=CHAR},
+      </if>
+      <if test="roleCode != null" >
+        role_code = #{roleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="debitYear != null" >
+        debit_year = #{debitYear,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" >
+    select * from prd_insurance where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="productCategory!=null" >
+      and product_category = #{productCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="productCompany!=null" >
+      and product_company = #{productCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="ageLower!=null" >
+      and age_lower = #{ageLower,jdbcType=INTEGER}
+    </if>
+    <if test="ageUpper!=null" >
+      and age_upper = #{ageUpper,jdbcType=INTEGER}
+    </if>
+    <if test="productTag!=null" >
+      and product_tag = #{productTag,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+    <if test="currency!=null" >
+      and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="years!=null" >
+      and years = #{years,jdbcType=VARCHAR}
+    </if>
+    <if test="productStatus!=null" >
+      and product_status = #{productStatus,jdbcType=CHAR}
+    </if>
+    <if test="roleCode!=null" >
+      and role_code = #{roleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="debitYear!=null" >
+      and debit_year = #{debitYear,jdbcType=INTEGER}
+    </if>
+    <if test="country!=null" >
+      and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="type!=null" >
+      and type = #{type,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" >
+    select count(0) from prd_insurance where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="productCategory!=null" >
+      and product_category = #{productCategory,jdbcType=VARCHAR}
+    </if>
+    <if test="productCompany!=null" >
+      and product_company = #{productCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="ageLower!=null" >
+      and age_lower = #{ageLower,jdbcType=INTEGER}
+    </if>
+    <if test="ageUpper!=null" >
+      and age_upper = #{ageUpper,jdbcType=INTEGER}
+    </if>
+    <if test="productTag!=null" >
+      and product_tag = #{productTag,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+    <if test="currency!=null" >
+      and currency = #{currency,jdbcType=VARCHAR}
+    </if>
+    <if test="years!=null" >
+      and years = #{years,jdbcType=VARCHAR}
+    </if>
+    <if test="productStatus!=null" >
+      and product_status = #{productStatus,jdbcType=CHAR}
+    </if>
+    <if test="roleCode!=null" >
+      and role_code = #{roleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="debitYear!=null" >
+      and debit_year = #{debitYear,jdbcType=INTEGER}
+    </if>
+    <if test="country!=null" >
+      and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="type!=null" >
+      and type = #{type,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

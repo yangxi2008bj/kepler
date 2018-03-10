@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.PrdCatMappingMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="searchCondition" property="searchcondition" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prd_cat_mapping
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" >
+    insert into prd_cat_mapping (seq_id, category, searchCondition
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{category,jdbcType=VARCHAR}, #{searchcondition,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" >
+    update prd_cat_mapping
+    set category = #{category,jdbcType=VARCHAR},
+      searchCondition = #{searchcondition,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, category, searchCondition
+    from prd_cat_mapping
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, category, searchCondition
+    from prd_cat_mapping
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from prd_cat_mapping where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from prd_cat_mapping where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="category!=null" >
+      and category = #{category,jdbcType=VARCHAR}
+    </if>
+    <if test="searchcondition!=null" >
+      and searchCondition = #{searchcondition,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <delete id="deleteAll" >
+    delete from prd_cat_mapping
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into prd_cat_mapping (seq_id, category, searchCondition
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{category,jdbcType=VARCHAR}, #{searchcondition,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into prd_cat_mapping (category,searchCondition ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.category},#{item.searchcondition})</foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" >
+    update prd_cat_mapping set
+    <trim suffixOverrides="," >
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="searchcondition != null" >
+        searchCondition = #{searchcondition,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" >
+    select * from prd_cat_mapping where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="category!=null" >
+      and category = #{category,jdbcType=VARCHAR}
+    </if>
+    <if test="searchcondition!=null" >
+      and searchCondition = #{searchcondition,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdCatMapping" >
+    select count(0) from prd_cat_mapping where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="category!=null" >
+      and category = #{category,jdbcType=VARCHAR}
+    </if>
+    <if test="searchcondition!=null" >
+      and searchCondition = #{searchcondition,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.PrdInsuranceMapperExt" >
+  	<select id="getInsurancesByCondition" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance" resultType="com.lachesis.windranger.authentication.dbmodel.PrdInsurance">
+		SELECT *
+		FROM `prd_insurance` WHERE 1 = 1
+		<if test="productCategory != null and productCategory != ''">
+			AND product_category = '${productCategory}'
+		</if>
+		<if test="productCompany != null and productCompany != ''">
+			AND product_company = '${productCompany}'
+		</if>
+		<if test="ageLower != null and ageLower != ''">
+			AND age_lower &lt;= '${ageLower}'
+		</if>
+		<if test="ageUpper != null and ageUpper != ''">
+			AND age_upper &gt;= '${ageUpper}'
+		</if>
+		<if test="productTag != null and productTag != ''">
+			AND product_tag = '${productTag}'
+		</if>
+		<if test="roleCode != null and roleCode != ''">
+			AND role_code = '${roleCode}'
+		</if>
+		<if test="type != null and type != ''">
+			AND type = '${type}'
+		</if>
+		<if test="country != null and country != ''">
+			AND country = '${country}'
+		</if>
+		<if test="debitYear != null and debitYear != ''">
+			AND debit_year = '${debitYear}'
+		</if>
+		<if test="productName != null and productName != ''">
+			AND product_name LIKE CONCAT ('%', '${productName}','%')
+		</if>
+	</select>  
+  	<select id="getInsuranceCompany" resultType="java.lang.String">
+		select distinct product_company from `prd_insurance` order by product_company
+	</select>
+	<select id="getInsuranceCategory" resultType="java.lang.String">
+		select distinct product_category from `prd_insurance` order by product_category
+	</select>   
+</mapper>

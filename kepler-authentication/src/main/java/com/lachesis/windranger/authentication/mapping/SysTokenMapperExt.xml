@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysTokenMapperExt" >
+  <resultMap id="SysTokenExt" type="com.lachesis.windranger.authentication.dbmodel.SysTokenExt" extends="com.lachesis.windranger.authentication.dao.SysTokenMapper.BaseResultMap">
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="token_content" property="tokenContent" jdbcType="VARCHAR" />
+    <result column="expiredate" property="expiredate" jdbcType="TIMESTAMP" />
+    <result column="isvalid" property="isvalid" jdbcType="INTEGER" />
+    <result column="ipaddress" property="ipaddress" jdbcType="VARCHAR" />
+    <result column="ismobile" property="ismobile" jdbcType="INTEGER" />
+  </resultMap>
+  	<select id="getSysToken" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken"
+		resultType="com.lachesis.windranger.authentication.dbmodel.SysToken">
+		SELECT seq_id as seqId,user_code as userCode,token_content as tokenContent,expiredate,isvalid, ipaddress,ismobile FROM sys_token WHERE 1 = 1
+		<if test="userCode != null and userCode != '' ">
+			AND  user_code = #{userCode}
+		</if>
+		<if test="tokenContent != null and tokenContent != '' ">
+			AND token_content = #{tokenContent}
+		</if>
+		<if test="ismobile != null and ismobile != '' ">
+			AND ismobile = #{ismobile}
+		</if>
+		limit 1
+	</select>
+	<update id="updateSysToken" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken">
+		UPDATE sys_token SET token_content=#{tokenContent}
+		<if test="expiredate != null and expiredate != '' ">
+			,expiredate=#{expiredate}
+		</if>
+		<if test="ipaddress != null and ipaddress != '' ">
+			,ipaddress=#{ipaddress}
+		</if>
+		<if test="isvalid != null and isvalid != '' ">
+			,isvalid = #{isvalid}
+		</if>
+		WHERE user_code = #{userCode} AND ismobile=#{ismobile}
+	</update>
+</mapper>

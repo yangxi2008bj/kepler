@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.lachesis.windranger.authentication.dao.SysRoleResourceMappingMapperExt">
+
+	<resultMap id="SysRoleResourceMappingExt"
+		type="com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMappingExt"
+		extends="com.lachesis.windranger.authentication.dao.SysRoleResourceMappingMapper.BaseResultMap">
+
+		<result column="role_name" property="roleName" jdbcType="VARCHAR" />
+		<result column="resource_name" property="resourceName"
+			jdbcType="VARCHAR" />
+		<result column="resource_type" property="resourceType"
+			jdbcType="VARCHAR" />
+		<result column="resource_content" property="resourceContent"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+
+	<select id="selectRoleResourceMappingByRoleCode" parameterType="java.lang.String"
+		resultMap="SysRoleResourceMappingExt">
+
+		SELECT mapping.*, role.`role_name`, res.`resource_content`,
+		res.`resource_name`, res.`resource_type` FROM
+		`sys_role_resource_mapping` mapping
+		LEFT JOIN `sys_role` role ON
+		mapping.`role_code`=role.`role_code`
+		LEFT JOIN `sys_resource` res ON
+		mapping.`resource_code` =
+		res.`resource_code`
+		where mapping.role_code =
+		#{roleCode, jdbcType=VARCHAR}
+	</select>
+
+</mapper>

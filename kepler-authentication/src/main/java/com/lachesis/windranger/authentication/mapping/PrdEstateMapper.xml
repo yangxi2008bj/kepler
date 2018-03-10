@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.PrdEstateMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.PrdEstate" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prd_estate
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdEstate" >
+    insert into prd_estate (seq_id, country, description, 
+      product_name)
+    values (#{seqId,jdbcType=BIGINT}, #{country,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdEstate" >
+    update prd_estate
+    set country = #{country,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, country, description, product_name
+    from prd_estate
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, country, description, product_name
+    from prd_estate
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from prd_estate where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from prd_estate where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="country!=null" >
+      and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="description!=null" >
+      and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <delete id="deleteAll" >
+    delete from prd_estate
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.PrdEstate" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into prd_estate (seq_id, country, description, 
+      product_name)
+    values (#{seqId,jdbcType=BIGINT}, #{country,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into prd_estate (country,description,product_name ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.country},#{item.description},#{item.productName})</foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdEstate" >
+    update prd_estate set
+    <trim suffixOverrides="," >
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdEstate" >
+    select * from prd_estate where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="country!=null" >
+      and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="description!=null" >
+      and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdEstate" >
+    select count(0) from prd_estate where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="country!=null" >
+      and country = #{country,jdbcType=VARCHAR}
+    </if>
+    <if test="description!=null" >
+      and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

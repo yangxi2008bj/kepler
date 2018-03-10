@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysAttachmentMapperExt" >
+  	<select id="getSysAttachmentInfo" parameterType="com.lachesis.windranger.authentication.dbmodel.SysAttachment" resultType="com.lachesis.windranger.authentication.dbmodel.SysAttachment">
+		SELECT 
+			seq_id, 
+			company_name, 
+			use_type, 
+			source_type, 
+			module_key, 
+			file_name, 
+			file_type,
+			length
+		FROM `sys_attachment` WHERE 1 = 1
+		<if test="companyName != null and companyName != ''">
+			AND company_name = '${companyName}'
+		</if>
+		<if test="useType != null and useType != ''">
+			AND use_type = '${useType}'
+		</if>
+		<if test="sourceType != null and sourceType != ''">
+			AND source_type = '${sourceType}'
+		</if>
+		<if test="fileName != null and fileName != ''">
+			AND file_name LIKE CONCAT ('%', '${fileName}','%')
+		</if>
+		<if test="moduleKey != null and moduleKey != ''">
+			AND module_key = '${moduleKey}'
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.SysRole" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_role
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.SysRole" >
+    insert into sys_role (seq_id, role_code, role_name, 
+      create_time, create_person, update_time, 
+      update_person)
+    values (#{seqId,jdbcType=BIGINT}, #{roleCode,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updatePerson,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.SysRole" >
+    update sys_role
+    set role_code = #{roleCode,jdbcType=VARCHAR},
+      role_name = #{roleName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, role_code, role_name, create_time, create_person, update_time, update_person
+    from sys_role
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, role_code, role_name, create_time, create_person, update_time, update_person
+    from sys_role
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from sys_role where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from sys_role where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="roleCode!=null" >
+      and role_code = #{roleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="roleName!=null" >
+      and role_name = #{roleName,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.SysRole" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into sys_role (seq_id, role_code, role_name, 
+      create_time, create_person, update_time, 
+      update_person)
+    values (#{seqId,jdbcType=BIGINT}, #{roleCode,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updatePerson,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.SysRole" >
+    update sys_role set
+    <trim suffixOverrides="," >
+      <if test="roleCode != null" >
+        role_code = #{roleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.SysRole" >
+    select * from sys_role where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="roleCode!=null" >
+      and role_code = #{roleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="roleName!=null" >
+      and role_name = #{roleName,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.SysRole" >
+    select count(0) from sys_role where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="roleCode!=null" >
+      and role_code = #{roleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="roleName!=null" >
+      and role_name = #{roleName,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

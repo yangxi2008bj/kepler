@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.PrdFundMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.PrdFund" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="fund_company" property="fundCompany" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prd_fund
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdFund" >
+    insert into prd_fund (seq_id, fund_company, description, 
+      product_name)
+    values (#{seqId,jdbcType=BIGINT}, #{fundCompany,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdFund" >
+    update prd_fund
+    set fund_company = #{fundCompany,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, fund_company, description, product_name
+    from prd_fund
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, fund_company, description, product_name
+    from prd_fund
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from prd_fund where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from prd_fund where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="fundCompany!=null" >
+      and fund_company = #{fundCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="description!=null" >
+      and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <delete id="deleteAll" >
+    delete from prd_fund
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.PrdFund" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into prd_fund (seq_id, fund_company, description, 
+      product_name)
+    values (#{seqId,jdbcType=BIGINT}, #{fundCompany,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into prd_fund (fund_company,description,product_name ) values <foreach collection="list" index="index" item="item" separator=",">(#{item.fundCompany},#{item.description},#{item.productName})</foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdFund" >
+    update prd_fund set
+    <trim suffixOverrides="," >
+      <if test="fundCompany != null" >
+        fund_company = #{fundCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdFund" >
+    select * from prd_fund where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="fundCompany!=null" >
+      and fund_company = #{fundCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="description!=null" >
+      and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.PrdFund" >
+    select count(0) from prd_fund where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="fundCompany!=null" >
+      and fund_company = #{fundCompany,jdbcType=VARCHAR}
+    </if>
+    <if test="description!=null" >
+      and description = #{description,jdbcType=VARCHAR}
+    </if>
+    <if test="productName!=null" >
+      and product_name = #{productName,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.SysResource" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="resource_code" property="resourceCode" jdbcType="VARCHAR" />
+    <result column="resource_name" property="resourceName" jdbcType="VARCHAR" />
+    <result column="resource_type" property="resourceType" jdbcType="VARCHAR" />
+    <result column="resource_content" property="resourceContent" jdbcType="VARCHAR" />
+    <result column="resource_desc" property="resourceDesc" jdbcType="VARCHAR" />
+    <result column="parent_resource_code" property="parentResourceCode" jdbcType="VARCHAR" />
+    <result column="app_type" property="appType" jdbcType="VARCHAR" />
+    <result column="resource_icon" property="resourceIcon" jdbcType="VARCHAR" />
+    <result column="app_version" property="appVersion" jdbcType="VARCHAR" />
+    <result column="ad" property="ad" jdbcType="VARCHAR" />
+    <result column="is_out" property="isOut" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_resource
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.SysResource" >
+    insert into sys_resource (seq_id, resource_code, resource_name, 
+      resource_type, resource_content, resource_desc, 
+      parent_resource_code, app_type, resource_icon, 
+      app_version, ad, is_out, 
+      create_time, create_person, update_time, 
+      update_person)
+    values (#{seqId,jdbcType=BIGINT}, #{resourceCode,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, 
+      #{resourceType,jdbcType=VARCHAR}, #{resourceContent,jdbcType=VARCHAR}, #{resourceDesc,jdbcType=VARCHAR}, 
+      #{parentResourceCode,jdbcType=VARCHAR}, #{appType,jdbcType=VARCHAR}, #{resourceIcon,jdbcType=VARCHAR}, 
+      #{appVersion,jdbcType=VARCHAR}, #{ad,jdbcType=VARCHAR}, #{isOut,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updatePerson,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.SysResource" >
+    update sys_resource
+    set resource_code = #{resourceCode,jdbcType=VARCHAR},
+      resource_name = #{resourceName,jdbcType=VARCHAR},
+      resource_type = #{resourceType,jdbcType=VARCHAR},
+      resource_content = #{resourceContent,jdbcType=VARCHAR},
+      resource_desc = #{resourceDesc,jdbcType=VARCHAR},
+      parent_resource_code = #{parentResourceCode,jdbcType=VARCHAR},
+      app_type = #{appType,jdbcType=VARCHAR},
+      resource_icon = #{resourceIcon,jdbcType=VARCHAR},
+      app_version = #{appVersion,jdbcType=VARCHAR},
+      ad = #{ad,jdbcType=VARCHAR},
+      is_out = #{isOut,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, resource_code, resource_name, resource_type, resource_content, resource_desc, 
+    parent_resource_code, app_type, resource_icon, app_version, ad, is_out, create_time, 
+    create_person, update_time, update_person
+    from sys_resource
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, resource_code, resource_name, resource_type, resource_content, resource_desc, 
+    parent_resource_code, app_type, resource_icon, app_version, ad, is_out, create_time, 
+    create_person, update_time, update_person
+    from sys_resource
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from sys_resource where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from sys_resource where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="resourceCode!=null" >
+      and resource_code = #{resourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName!=null" >
+      and resource_name = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceType!=null" >
+      and resource_type = #{resourceType,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceContent!=null" >
+      and resource_content = #{resourceContent,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceDesc!=null" >
+      and resource_desc = #{resourceDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="parentResourceCode!=null" >
+      and parent_resource_code = #{parentResourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="appType!=null" >
+      and app_type = #{appType,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceIcon!=null" >
+      and resource_icon = #{resourceIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="appVersion!=null" >
+      and app_version = #{appVersion,jdbcType=VARCHAR}
+    </if>
+    <if test="ad!=null" >
+      and ad = #{ad,jdbcType=VARCHAR}
+    </if>
+    <if test="isOut!=null" >
+      and is_out = #{isOut,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.SysResource" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into sys_resource (seq_id, resource_code, resource_name, 
+      resource_type, resource_content, resource_desc, 
+      parent_resource_code, app_type, resource_icon, 
+      app_version, ad, is_out, 
+      create_time, create_person, update_time, 
+      update_person)
+    values (#{seqId,jdbcType=BIGINT}, #{resourceCode,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, 
+      #{resourceType,jdbcType=VARCHAR}, #{resourceContent,jdbcType=VARCHAR}, #{resourceDesc,jdbcType=VARCHAR}, 
+      #{parentResourceCode,jdbcType=VARCHAR}, #{appType,jdbcType=VARCHAR}, #{resourceIcon,jdbcType=VARCHAR}, 
+      #{appVersion,jdbcType=VARCHAR}, #{ad,jdbcType=VARCHAR}, #{isOut,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createPerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updatePerson,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.SysResource" >
+    update sys_resource set
+    <trim suffixOverrides="," >
+      <if test="resourceCode != null" >
+        resource_code = #{resourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resource_name = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceType != null" >
+        resource_type = #{resourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceContent != null" >
+        resource_content = #{resourceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceDesc != null" >
+        resource_desc = #{resourceDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="parentResourceCode != null" >
+        parent_resource_code = #{parentResourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        app_type = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceIcon != null" >
+        resource_icon = #{resourceIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="appVersion != null" >
+        app_version = #{appVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="ad != null" >
+        ad = #{ad,jdbcType=VARCHAR},
+      </if>
+      <if test="isOut != null" >
+        is_out = #{isOut,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.SysResource" >
+    select * from sys_resource where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="resourceCode!=null" >
+      and resource_code = #{resourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName!=null" >
+      and resource_name = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceType!=null" >
+      and resource_type = #{resourceType,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceContent!=null" >
+      and resource_content = #{resourceContent,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceDesc!=null" >
+      and resource_desc = #{resourceDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="parentResourceCode!=null" >
+      and parent_resource_code = #{parentResourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="appType!=null" >
+      and app_type = #{appType,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceIcon!=null" >
+      and resource_icon = #{resourceIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="appVersion!=null" >
+      and app_version = #{appVersion,jdbcType=VARCHAR}
+    </if>
+    <if test="ad!=null" >
+      and ad = #{ad,jdbcType=VARCHAR}
+    </if>
+    <if test="isOut!=null" >
+      and is_out = #{isOut,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.SysResource" >
+    select count(0) from sys_resource where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="resourceCode!=null" >
+      and resource_code = #{resourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceName!=null" >
+      and resource_name = #{resourceName,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceType!=null" >
+      and resource_type = #{resourceType,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceContent!=null" >
+      and resource_content = #{resourceContent,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceDesc!=null" >
+      and resource_desc = #{resourceDesc,jdbcType=VARCHAR}
+    </if>
+    <if test="parentResourceCode!=null" >
+      and parent_resource_code = #{parentResourceCode,jdbcType=VARCHAR}
+    </if>
+    <if test="appType!=null" >
+      and app_type = #{appType,jdbcType=VARCHAR}
+    </if>
+    <if test="resourceIcon!=null" >
+      and resource_icon = #{resourceIcon,jdbcType=VARCHAR}
+    </if>
+    <if test="appVersion!=null" >
+      and app_version = #{appVersion,jdbcType=VARCHAR}
+    </if>
+    <if test="ad!=null" >
+      and ad = #{ad,jdbcType=VARCHAR}
+    </if>
+    <if test="isOut!=null" >
+      and is_out = #{isOut,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime!=null" >
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createPerson!=null" >
+      and create_person = #{createPerson,jdbcType=VARCHAR}
+    </if>
+    <if test="updateTime!=null" >
+      and update_time = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updatePerson!=null" >
+      and update_person = #{updatePerson,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

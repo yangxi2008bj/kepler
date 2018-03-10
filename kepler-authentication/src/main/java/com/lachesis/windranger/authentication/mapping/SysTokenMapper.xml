@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysTokenMapper" >
+  <resultMap id="BaseResultMap" type="com.lachesis.windranger.authentication.dbmodel.SysToken" >
+    <id column="seq_id" property="seqId" jdbcType="BIGINT" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="token_content" property="tokenContent" jdbcType="VARCHAR" />
+    <result column="expiredate" property="expiredate" jdbcType="TIMESTAMP" />
+    <result column="isvalid" property="isvalid" jdbcType="INTEGER" />
+    <result column="ipaddress" property="ipaddress" jdbcType="VARCHAR" />
+    <result column="ismobile" property="ismobile" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_token
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken" >
+    insert into sys_token (seq_id, user_code, token_content, 
+      expiredate, isvalid, ipaddress, 
+      ismobile)
+    values (#{seqId,jdbcType=BIGINT}, #{userCode,jdbcType=VARCHAR}, #{tokenContent,jdbcType=VARCHAR}, 
+      #{expiredate,jdbcType=TIMESTAMP}, #{isvalid,jdbcType=INTEGER}, #{ipaddress,jdbcType=VARCHAR}, 
+      #{ismobile,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken" >
+    update sys_token
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      token_content = #{tokenContent,jdbcType=VARCHAR},
+      expiredate = #{expiredate,jdbcType=TIMESTAMP},
+      isvalid = #{isvalid,jdbcType=INTEGER},
+      ipaddress = #{ipaddress,jdbcType=VARCHAR},
+      ismobile = #{ismobile,jdbcType=INTEGER}
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select seq_id, user_code, token_content, expiredate, isvalid, ipaddress, ismobile
+    from sys_token
+    where seq_id = #{seqId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select seq_id, user_code, token_content, expiredate, isvalid, ipaddress, ismobile
+    from sys_token
+  </select>
+  <delete id="removeKeysWithSession" parameterType="java.util.List" >
+    delete from sys_token where seq_id IN <foreach close=")" collection="list" index="index" item="item" open="(" separator=","> #{item} </foreach>
+  </delete>
+  <delete id="deleteByBean" parameterType="java.lang.Long" >
+    delete from sys_token where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="userCode!=null" >
+      and user_code = #{userCode,jdbcType=VARCHAR}
+    </if>
+    <if test="tokenContent!=null" >
+      and token_content = #{tokenContent,jdbcType=VARCHAR}
+    </if>
+    <if test="expiredate!=null" >
+      and expiredate = #{expiredate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isvalid!=null" >
+      and isvalid = #{isvalid,jdbcType=INTEGER}
+    </if>
+    <if test="ipaddress!=null" >
+      and ipaddress = #{ipaddress,jdbcType=VARCHAR}
+    </if>
+    <if test="ismobile!=null" >
+      and ismobile = #{ismobile,jdbcType=INTEGER}
+    </if>
+  </delete>
+  <insert parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken" id="insertAndReturnKey" keyProperty="seqId" useGeneratedKeys="true" >
+    insert into sys_token (seq_id, user_code, token_content, 
+      expiredate, isvalid, ipaddress, 
+      ismobile)
+    values (#{seqId,jdbcType=BIGINT}, #{userCode,jdbcType=VARCHAR}, #{tokenContent,jdbcType=VARCHAR}, 
+      #{expiredate,jdbcType=TIMESTAMP}, #{isvalid,jdbcType=INTEGER}, #{ipaddress,jdbcType=VARCHAR}, 
+      #{ismobile,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken" >
+    update sys_token set
+    <trim suffixOverrides="," >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenContent != null" >
+        token_content = #{tokenContent,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredate != null" >
+        expiredate = #{expiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isvalid != null" >
+        isvalid = #{isvalid,jdbcType=INTEGER},
+      </if>
+      <if test="ipaddress != null" >
+        ipaddress = #{ipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="ismobile != null" >
+        ismobile = #{ismobile,jdbcType=INTEGER}
+      </if>
+    </trim>
+     where seq_id = #{seqId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken" >
+    select * from sys_token where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="userCode!=null" >
+      and user_code = #{userCode,jdbcType=VARCHAR}
+    </if>
+    <if test="tokenContent!=null" >
+      and token_content = #{tokenContent,jdbcType=VARCHAR}
+    </if>
+    <if test="expiredate!=null" >
+      and expiredate = #{expiredate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isvalid!=null" >
+      and isvalid = #{isvalid,jdbcType=INTEGER}
+    </if>
+    <if test="ipaddress!=null" >
+      and ipaddress = #{ipaddress,jdbcType=VARCHAR}
+    </if>
+    <if test="ismobile!=null" >
+      and ismobile = #{ismobile,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="countByBean" resultType="int" parameterType="com.lachesis.windranger.authentication.dbmodel.SysToken" >
+    select count(0) from sys_token where 1=1 
+    <if test="seqId!=null" >
+      and seq_id = #{seqId,jdbcType=BIGINT}
+    </if>
+    <if test="userCode!=null" >
+      and user_code = #{userCode,jdbcType=VARCHAR}
+    </if>
+    <if test="tokenContent!=null" >
+      and token_content = #{tokenContent,jdbcType=VARCHAR}
+    </if>
+    <if test="expiredate!=null" >
+      and expiredate = #{expiredate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="isvalid!=null" >
+      and isvalid = #{isvalid,jdbcType=INTEGER}
+    </if>
+    <if test="ipaddress!=null" >
+      and ipaddress = #{ipaddress,jdbcType=VARCHAR}
+    </if>
+    <if test="ismobile!=null" >
+      and ismobile = #{ismobile,jdbcType=INTEGER}
+    </if>
+  </select>
+</mapper>
