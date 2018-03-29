@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lachesis.windranger.authentication.dao.SysImageMapperExt">
+	<resultMap id="SysImageExt"
+		type="com.lachesis.windranger.authentication.dbmodel.SysImageExt"
+		extends="com.lachesis.windranger.authentication.dao.SysImageMapper.BaseResultMap" />
+	<insert id="insertImage" keyColumn="seq_id" keyProperty="seqId" useGeneratedKeys="true" parameterType="com.lachesis.windranger.authentication.dbmodel.SysImage">
+	    insert into sys_image (file_name, file_type, 
+	      length, create_person, create_time, 
+	      url)
+	    values (#{fileName,jdbcType=VARCHAR}, #{fileType,jdbcType=VARCHAR}, 
+	      #{length,jdbcType=BIGINT}, #{createPerson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+	      #{url,jdbcType=LONGVARBINARY})
+ 	 </insert>
+</mapper>

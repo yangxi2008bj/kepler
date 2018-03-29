@@ -11,7 +11,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 
 public class SysAttachment extends ValuedBean {
-    @ApiModelProperty(name="seq_id", value="自增长流水号")
+    /** 
+	 * @fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	 */ 
+	private static final long serialVersionUID = -3059194645328921957L;
+
+	@ApiModelProperty(name="seq_id", value="自增长流水号")
     private Long seqId;
 
     @ApiModelProperty(name="company_name", value="产品公司")

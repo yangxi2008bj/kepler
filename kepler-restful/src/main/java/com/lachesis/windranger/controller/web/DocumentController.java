@@ -33,6 +33,13 @@ public class DocumentController {
 					@ApiParam(value = "附件内容") SysAttachment sysAttachment) {
 		return iFileManager.uploadFile(file, sysAttachment);
 	}
+	
+	@RequestMapping(value = {"/uploadImage"}, method = RequestMethod.POST)
+	@ResponseBody
+	@ApiOperation(value = "上传文件", httpMethod = "POST")
+	public Map<String, Object> uploadImage(@ApiParam(value = "文件") MultipartFile file) {
+		return iFileManager.uploadImage(file);
+	}
 
 	@RequestMapping(value = {"/download"}, method = RequestMethod.GET)
 	@ResponseBody
@@ -40,6 +47,14 @@ public class DocumentController {
 	public void uploadDoc(@ApiParam(value = "文件") @RequestParam Long seqId,
 					HttpServletResponse response) {
 		iFileManager.downloadFile(seqId, response);
+	}
+	
+	@RequestMapping(value = {"/downloadImage"}, method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "下载文件", httpMethod = "GET")
+	public void downloadImage(@ApiParam(value = "文件") @RequestParam Long seqId,
+					HttpServletResponse response) {
+		iFileManager.downloadImage(seqId, response);
 	}
 
 	@RequestMapping(value = {"/searchFile"}, method = RequestMethod.POST)
@@ -56,5 +71,18 @@ public class DocumentController {
 	public void deleteResourceByCode(@ApiParam(value = "删除的文件的seqId") @PathVariable Long seqId) {
 		iFileManager.deleteAttachment(seqId);
 	}
-	
+
+	@RequestMapping(value = {"/companyName"}, method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取产品公司", httpMethod = "GET")
+	public List<String> getCompanyName() {
+		return iFileManager.getCompanyName();
+	}
+
+	@RequestMapping(value = {"/sourceType"}, method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取资料类型", httpMethod = "GET")
+	public List<String> getSourceType() {
+		return iFileManager.getSourceType();
+	}
 }

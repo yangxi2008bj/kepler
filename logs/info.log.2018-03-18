@@ -1,0 +1,452 @@
+[INFO] 2018-03-18 14:02:37,119 org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:305)
+	 Root WebApplicationContext: initialization started
+[INFO] 2018-03-18 14:02:37,171 org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:582)
+	 Refreshing Root WebApplicationContext: startup date [Sun Mar 18 14:02:37 CST 2018]; root of context hierarchy
+[INFO] 2018-03-18 14:02:37,207 org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+	 Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] 2018-03-18 14:02:37,703 org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+	 Loading properties file from class path resource [config.properties]
+[INFO] 2018-03-18 14:02:37,710 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:155)
+	 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] 2018-03-18 14:02:37,882 org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+	 Loading properties file from class path resource [config.properties]
+[INFO] 2018-03-18 14:02:38,165 com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:715)
+	 {dataSource-1} inited
+[INFO] 2018-03-18 14:02:39,344 org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:345)
+	 Root WebApplicationContext: initialization completed in 2218 ms
+[INFO] 2018-03-18 14:02:39,373 org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+	 FrameworkServlet 'SpringMVC': initialization started
+[INFO] 2018-03-18 14:02:39,375 org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:582)
+	 Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sun Mar 18 14:02:39 CST 2018]; parent: Root WebApplicationContext
+[INFO] 2018-03-18 14:02:39,376 org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+	 Loading XML bean definitions from class path resource [springmvc-servlet.xml]
+[INFO] 2018-03-18 14:02:39,802 org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.isOverriddenByExistingDefinition(ConfigurationClassBeanDefinitionReader.java:298)
+	 Skipping bean definition for [BeanMethod:name=handlerExceptionResolver,declaringClass=org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport]: a definition for bean 'handlerExceptionResolver' already exists. This top-level bean definition is considered as an override.
+[INFO] 2018-03-18 14:02:39,813 org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:826)
+	 Overriding bean definition for bean 'requestMappingHandlerMapping' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration; factoryMethodName=requestMappingHandlerMapping; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.lachesis.windranger.config.WindRangerWebMvcConfig#0; factoryMethodName=requestMappingHandlerMapping; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/lachesis/windranger/config/WindRangerWebMvcConfig.class]]
+[INFO] 2018-03-18 14:02:39,899 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:155)
+	 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] 2018-03-18 14:02:40,461 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)
+	 Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sun Mar 18 14:02:39 CST 2018]; parent: Root WebApplicationContext
+[INFO] 2018-03-18 14:02:40,920 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/tokens],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.model.WrToken com.lachesis.windranger.controller.web.AuthenticationController.getToken(com.lachesis.windranger.authentication.model.vo.LoginModel,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO] 2018-03-18 14:02:40,922 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/sysToken/getSysToken],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysToken com.lachesis.windranger.controller.web.AuthenticationController.getSysToken(com.lachesis.windranger.authentication.dbmodel.SysToken)
+[INFO] 2018-03-18 14:02:40,922 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/sysToken/updateToken],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysToken com.lachesis.windranger.controller.web.AuthenticationController.updateToken(com.lachesis.windranger.authentication.dbmodel.SysToken) throws java.lang.Exception
+[INFO] 2018-03-18 14:02:40,922 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/forget],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.AuthenticationController.sendMail(java.lang.String)
+[INFO] 2018-03-18 14:02:40,923 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userRoleMappings],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUserRoleMapping com.lachesis.windranger.controller.web.AuthenticationController.createUserRoleMapping(com.lachesis.windranger.authentication.dbmodel.SysUserRoleMapping)
+[INFO] 2018-03-18 14:02:40,923 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles/{roleCode}/roleResourceMappings],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping> com.lachesis.windranger.controller.web.AuthenticationController.getResourceMappingsByRoleCode(java.lang.String)
+[INFO] 2018-03-18 14:02:40,923 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/sysToken/generateSaveToken],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysToken com.lachesis.windranger.controller.web.AuthenticationController.generateSaveToken(com.lachesis.windranger.authentication.dbmodel.SysToken) throws java.lang.Exception
+[INFO] 2018-03-18 14:02:40,924 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/passwordCorrect],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public boolean com.lachesis.windranger.controller.web.AuthenticationController.verifyUserNamePassword(java.lang.String,java.lang.String)
+[INFO] 2018-03-18 14:02:40,924 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roleResourceMappings],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping com.lachesis.windranger.controller.web.AuthenticationController.createRoleResrouceMapping(com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping)
+[INFO] 2018-03-18 14:02:40,924 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roleResourceMappings/{seqId}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping com.lachesis.windranger.controller.web.AuthenticationController.updateRoleReourceMapping(java.lang.Long,com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping)
+[INFO] 2018-03-18 14:02:40,925 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}/userRoleMappings],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysUserRoleMappingExt> com.lachesis.windranger.controller.web.AuthenticationController.getRoleMappingsByUserCode(java.lang.String)
+[INFO] 2018-03-18 14:02:40,925 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roleResourceMappings/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.AuthenticationController.deleteRoleResourceMapping(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,925 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userRoleMappings/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.AuthenticationController.deleteUserRoleMapping(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,933 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/companyName],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<java.lang.String> com.lachesis.windranger.controller.web.DocumentController.getCompanyName()
+[INFO] 2018-03-18 14:02:40,934 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/sourceType],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<java.lang.String> com.lachesis.windranger.controller.web.DocumentController.getSourceType()
+[INFO] 2018-03-18 14:02:40,934 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/upload],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.lachesis.windranger.controller.web.DocumentController.uploadDoc(org.springframework.web.multipart.MultipartFile,com.lachesis.windranger.authentication.dbmodel.SysAttachment)
+[INFO] 2018-03-18 14:02:40,935 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/download],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.DocumentController.uploadDoc(java.lang.Long,javax.servlet.http.HttpServletResponse)
+[INFO] 2018-03-18 14:02:40,935 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.DocumentController.deleteResourceByCode(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,935 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/searchFile],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysAttachment> com.lachesis.windranger.controller.web.DocumentController.searchFileByCondition(com.lachesis.windranger.authentication.dbmodel.SysAttachment)
+[INFO] 2018-03-18 14:02:40,940 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/detail],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.lang.Object com.lachesis.windranger.controller.web.ProductController.getDetail(java.lang.String,java.lang.Long)
+[INFO] 2018-03-18 14:02:40,941 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/menu],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<java.lang.String> com.lachesis.windranger.controller.web.ProductController.getMenu(java.lang.String)
+[INFO] 2018-03-18 14:02:40,943 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/searchCondition],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.util.List<java.lang.String>> com.lachesis.windranger.controller.web.ProductController.getSearchConditionByType(java.lang.String)
+[INFO] 2018-03-18 14:02:40,944 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteResourceByCode(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,945 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdImmigration com.lachesis.windranger.controller.web.ProductController.getImmigrationDetail(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,945 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdImmigration> com.lachesis.windranger.controller.web.ProductController.searchImmigrationByCondition(com.lachesis.windranger.authentication.dbmodel.PrdImmigration)
+[INFO] 2018-03-18 14:02:40,946 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteImmigrationByCode(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,946 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdInsurance com.lachesis.windranger.controller.web.ProductController.getInsuranceDetail(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,946 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdInsurance> com.lachesis.windranger.controller.web.ProductController.searchInsuranceByCondition(com.lachesis.windranger.authentication.dbmodel.PrdInsurance)
+[INFO] 2018-03-18 14:02:40,947 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteEstateByCode(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,947 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdFund> com.lachesis.windranger.controller.web.ProductController.searchFundByCondition(com.lachesis.windranger.authentication.dbmodel.PrdFund)
+[INFO] 2018-03-18 14:02:40,948 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdCreditor com.lachesis.windranger.controller.web.ProductController.getCreditorDetail(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,948 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdCreditor> com.lachesis.windranger.controller.web.ProductController.searchCreditorByCondition(com.lachesis.windranger.authentication.dbmodel.PrdCreditor)
+[INFO] 2018-03-18 14:02:40,948 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteCreditorByCode(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,949 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdEstate> com.lachesis.windranger.controller.web.ProductController.searchEstateByCondition(com.lachesis.windranger.authentication.dbmodel.PrdEstate)
+[INFO] 2018-03-18 14:02:40,949 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdEstate com.lachesis.windranger.controller.web.ProductController.getEstateDetail(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,949 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addInsurance(com.lachesis.windranger.authentication.dbmodel.PrdInsurance)
+[INFO] 2018-03-18 14:02:40,950 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdFund com.lachesis.windranger.controller.web.ProductController.getFundDetail(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,950 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addCreditor(com.lachesis.windranger.authentication.dbmodel.PrdCreditor)
+[INFO] 2018-03-18 14:02:40,950 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteFundByCode(java.lang.Long)
+[INFO] 2018-03-18 14:02:40,951 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addImmigration(com.lachesis.windranger.authentication.dbmodel.PrdImmigration)
+[INFO] 2018-03-18 14:02:40,951 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addFund(com.lachesis.windranger.authentication.dbmodel.PrdFund)
+[INFO] 2018-03-18 14:02:40,951 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addEstate(com.lachesis.windranger.authentication.dbmodel.PrdEstate)
+[INFO] 2018-03-18 14:02:40,952 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/reservation/product],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ReservationController.updateReservation(com.lachesis.windranger.authentication.dbmodel.PrdReservation)
+[INFO] 2018-03-18 14:02:40,953 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/reservation/product/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdReservation com.lachesis.windranger.controller.web.ReservationController.getPrdReservation(long)
+[INFO] 2018-03-18 14:02:40,953 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/reservation/queryProduct],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdReservation> com.lachesis.windranger.controller.web.ReservationController.queryReservationByCondition(com.lachesis.windranger.authentication.dbmodel.PrdReservation)
+[INFO] 2018-03-18 14:02:40,953 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/reservation/product],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ReservationController.addReservation(com.lachesis.windranger.authentication.dbmodel.PrdReservation)
+[INFO] 2018-03-18 14:02:40,955 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysResource com.lachesis.windranger.controller.web.ResourceController.addResource(com.lachesis.windranger.authentication.dbmodel.SysResource)
+[INFO] 2018-03-18 14:02:40,956 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysResource> com.lachesis.windranger.controller.web.ResourceController.getAllResources()
+[INFO] 2018-03-18 14:02:40,956 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources/{resourceCode}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysResource com.lachesis.windranger.controller.web.ResourceController.updateResource(java.lang.String,com.lachesis.windranger.authentication.dbmodel.SysResource)
+[INFO] 2018-03-18 14:02:40,959 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources/{resourceCode}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ResourceController.deleteResourceByCode(java.lang.String)
+[INFO] 2018-03-18 14:02:40,962 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRole com.lachesis.windranger.controller.web.RoleController.addRole(com.lachesis.windranger.authentication.dbmodel.SysRole)
+[INFO] 2018-03-18 14:02:40,963 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysRole> com.lachesis.windranger.controller.web.RoleController.getAllRoles()
+[INFO] 2018-03-18 14:02:40,964 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles/{roleCode}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRole com.lachesis.windranger.controller.web.RoleController.updateRole(java.lang.String,com.lachesis.windranger.authentication.dbmodel.SysRole)
+[INFO] 2018-03-18 14:02:40,964 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles/{roleCode}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.RoleController.deleteRoleByCode(java.lang.String)
+[INFO] 2018-03-18 14:02:40,966 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUser com.lachesis.windranger.controller.web.UserController.addUser(com.lachesis.windranger.authentication.dbmodel.SysUser)
+[INFO] 2018-03-18 14:02:40,967 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.UserController.deleteUserByCode(java.lang.String)
+[INFO] 2018-03-18 14:02:40,967 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUser com.lachesis.windranger.controller.web.UserController.updateUser(java.lang.String,com.lachesis.windranger.authentication.dbmodel.SysUser)
+[INFO] 2018-03-18 14:02:40,968 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysUser> com.lachesis.windranger.controller.web.UserController.getAllUsers()
+[INFO] 2018-03-18 14:02:40,968 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}/userResourceMappings],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysUserMapping> com.lachesis.windranger.controller.web.UserController.getSysUserMapByBean(java.lang.String)
+[INFO] 2018-03-18 14:02:40,969 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userResourceMappings/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lachesis.windranger.controller.web.UserController.deleteSysUserMapBySeqId(long)
+[INFO] 2018-03-18 14:02:40,969 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUser com.lachesis.windranger.controller.web.UserController.getUserByUserCode(java.lang.String)
+[INFO] 2018-03-18 14:02:40,969 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userResourceMappings],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lachesis.windranger.controller.web.UserController.addSysUserMapByBean(com.lachesis.windranger.authentication.dbmodel.SysUserMapping)
+[INFO] 2018-03-18 14:02:40,970 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userResourceMappings/{seqId}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lachesis.windranger.controller.web.UserController.updateSysUserMapByBean(long,com.lachesis.windranger.authentication.dbmodel.SysUserMapping)
+[INFO] 2018-03-18 14:02:40,971 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+[INFO] 2018-03-18 14:02:40,974 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+[INFO] 2018-03-18 14:02:40,975 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+[INFO] 2018-03-18 14:02:40,976 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+[INFO] 2018-03-18 14:02:41,182 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)
+	 Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sun Mar 18 14:02:39 CST 2018]; parent: Root WebApplicationContext
+[INFO] 2018-03-18 14:02:41,243 org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:341)
+	 Starting beans in phase 2147483647
+[INFO] 2018-03-18 14:02:41,243 springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:120)
+	 Context refreshed
+[INFO] 2018-03-18 14:02:41,272 springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:123)
+	 Found 1 custom documentation plugin(s)
+[INFO] 2018-03-18 14:02:41,292 springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)
+	 Scanning for api listing references
+[INFO] 2018-03-18 14:02:41,727 springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)
+	 Generating unique operation named: deleteResourceByCodeUsingDELETE_1
+[INFO] 2018-03-18 14:02:41,897 springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)
+	 Generating unique operation named: deleteResourceByCodeUsingDELETE_2
+[INFO] 2018-03-18 14:02:42,034 org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+	 FrameworkServlet 'SpringMVC': initialization completed in 2661 ms
+[INFO] 2018-03-18 14:03:26,245 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:03:26-------------------------------------
+Controller-Method: springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation
+Params    : 
+URI       : /windranger/v2/api-docs
+
+[INFO] 2018-03-18 14:03:26,432 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/v2/api-docs]execTime:186ms
+[WARN] 2018-03-18 14:03:42,161 org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1147)
+	 No mapping found for HTTP request with URI [/windranger/docs/images/throbber.gif] in DispatcherServlet with name 'SpringMVC'
+[INFO] 2018-03-18 14:04:25,108 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:04:25-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.addReservation
+Params    : 
+URI       : /windranger/reservation/product
+
+[INFO] 2018-03-18 14:04:25,231 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/product]execTime:123ms
+[INFO] 2018-03-18 14:04:49,995 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:04:49-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.addReservation
+Params    : 
+URI       : /windranger/reservation/product
+
+[INFO] 2018-03-18 14:04:50,003 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/product]execTime:8ms
+[INFO] 2018-03-18 14:05:36,043 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:05:36-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.updateReservation
+Params    : 
+URI       : /windranger/reservation/product
+
+[INFO] 2018-03-18 14:05:36,273 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/product]execTime:230ms
+[INFO] 2018-03-18 14:05:48,167 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:05:48-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.getPrdReservation
+Params    : 
+URI       : /windranger/reservation/product/2
+
+[INFO] 2018-03-18 14:05:48,197 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/product/2]execTime:29ms
+[INFO] 2018-03-18 14:06:10,039 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:06:10-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.queryReservationByCondition
+Params    : 
+URI       : /windranger/reservation/queryProduct
+
+[INFO] 2018-03-18 14:06:10,048 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/queryProduct]execTime:8ms
+[INFO] 2018-03-18 14:06:29,462 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:06:29-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.queryReservationByCondition
+Params    : 
+URI       : /windranger/reservation/queryProduct
+
+[INFO] 2018-03-18 14:06:29,470 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/queryProduct]execTime:8ms
+[INFO] 2018-03-18 14:06:46,475 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:06:46-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.ReservationController.queryReservationByCondition
+Params    : 
+URI       : /windranger/reservation/queryProduct
+
+[INFO] 2018-03-18 14:06:46,483 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/reservation/queryProduct]execTime:8ms
+[INFO] 2018-03-18 14:48:31,977 org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:305)
+	 Root WebApplicationContext: initialization started
+[INFO] 2018-03-18 14:48:32,017 org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:582)
+	 Refreshing Root WebApplicationContext: startup date [Sun Mar 18 14:48:32 CST 2018]; root of context hierarchy
+[INFO] 2018-03-18 14:48:32,046 org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+	 Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] 2018-03-18 14:48:32,608 org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+	 Loading properties file from class path resource [config.properties]
+[INFO] 2018-03-18 14:48:32,614 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:155)
+	 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] 2018-03-18 14:48:32,763 org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+	 Loading properties file from class path resource [config.properties]
+[INFO] 2018-03-18 14:48:32,995 com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:715)
+	 {dataSource-1} inited
+[INFO] 2018-03-18 14:48:34,171 org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:345)
+	 Root WebApplicationContext: initialization completed in 2192 ms
+[INFO] 2018-03-18 14:48:34,202 org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+	 FrameworkServlet 'SpringMVC': initialization started
+[INFO] 2018-03-18 14:48:34,205 org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:582)
+	 Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sun Mar 18 14:48:34 CST 2018]; parent: Root WebApplicationContext
+[INFO] 2018-03-18 14:48:34,206 org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+	 Loading XML bean definitions from class path resource [springmvc-servlet.xml]
+[INFO] 2018-03-18 14:48:34,575 org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.isOverriddenByExistingDefinition(ConfigurationClassBeanDefinitionReader.java:298)
+	 Skipping bean definition for [BeanMethod:name=handlerExceptionResolver,declaringClass=org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport]: a definition for bean 'handlerExceptionResolver' already exists. This top-level bean definition is considered as an override.
+[INFO] 2018-03-18 14:48:34,586 org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:826)
+	 Overriding bean definition for bean 'requestMappingHandlerMapping' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration; factoryMethodName=requestMappingHandlerMapping; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.lachesis.windranger.config.WindRangerWebMvcConfig#0; factoryMethodName=requestMappingHandlerMapping; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/lachesis/windranger/config/WindRangerWebMvcConfig.class]]
+[INFO] 2018-03-18 14:48:34,682 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:155)
+	 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] 2018-03-18 14:48:35,188 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)
+	 Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sun Mar 18 14:48:34 CST 2018]; parent: Root WebApplicationContext
+[INFO] 2018-03-18 14:48:35,667 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/tokens],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.model.WrToken com.lachesis.windranger.controller.web.AuthenticationController.getToken(com.lachesis.windranger.authentication.model.vo.LoginModel,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO] 2018-03-18 14:48:35,668 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userRoleMappings/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.AuthenticationController.deleteUserRoleMapping(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,669 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roleResourceMappings],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping com.lachesis.windranger.controller.web.AuthenticationController.createRoleResrouceMapping(com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping)
+[INFO] 2018-03-18 14:48:35,669 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roleResourceMappings/{seqId}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping com.lachesis.windranger.controller.web.AuthenticationController.updateRoleReourceMapping(java.lang.Long,com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping)
+[INFO] 2018-03-18 14:48:35,669 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roleResourceMappings/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.AuthenticationController.deleteRoleResourceMapping(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,670 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userRoleMappings],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUserRoleMapping com.lachesis.windranger.controller.web.AuthenticationController.createUserRoleMapping(com.lachesis.windranger.authentication.dbmodel.SysUserRoleMapping)
+[INFO] 2018-03-18 14:48:35,670 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}/userRoleMappings],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysUserRoleMappingExt> com.lachesis.windranger.controller.web.AuthenticationController.getRoleMappingsByUserCode(java.lang.String)
+[INFO] 2018-03-18 14:48:35,671 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles/{roleCode}/roleResourceMappings],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysRoleResourceMapping> com.lachesis.windranger.controller.web.AuthenticationController.getResourceMappingsByRoleCode(java.lang.String)
+[INFO] 2018-03-18 14:48:35,671 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/sysToken/generateSaveToken],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysToken com.lachesis.windranger.controller.web.AuthenticationController.generateSaveToken(com.lachesis.windranger.authentication.dbmodel.SysToken) throws java.lang.Exception
+[INFO] 2018-03-18 14:48:35,671 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/passwordCorrect],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public boolean com.lachesis.windranger.controller.web.AuthenticationController.verifyUserNamePassword(java.lang.String,java.lang.String)
+[INFO] 2018-03-18 14:48:35,672 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/sysToken/getSysToken],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysToken com.lachesis.windranger.controller.web.AuthenticationController.getSysToken(com.lachesis.windranger.authentication.dbmodel.SysToken)
+[INFO] 2018-03-18 14:48:35,672 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/sysToken/updateToken],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysToken com.lachesis.windranger.controller.web.AuthenticationController.updateToken(com.lachesis.windranger.authentication.dbmodel.SysToken) throws java.lang.Exception
+[INFO] 2018-03-18 14:48:35,673 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/forget],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.AuthenticationController.sendMail(java.lang.String)
+[INFO] 2018-03-18 14:48:35,676 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.DocumentController.deleteResourceByCode(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,677 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/companyName],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<java.lang.String> com.lachesis.windranger.controller.web.DocumentController.getCompanyName()
+[INFO] 2018-03-18 14:48:35,677 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/sourceType],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<java.lang.String> com.lachesis.windranger.controller.web.DocumentController.getSourceType()
+[INFO] 2018-03-18 14:48:35,677 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/download],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.DocumentController.uploadDoc(java.lang.Long,javax.servlet.http.HttpServletResponse)
+[INFO] 2018-03-18 14:48:35,678 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/upload],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.lachesis.windranger.controller.web.DocumentController.uploadDoc(org.springframework.web.multipart.MultipartFile,com.lachesis.windranger.authentication.dbmodel.SysAttachment)
+[INFO] 2018-03-18 14:48:35,678 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/document/searchFile],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysAttachment> com.lachesis.windranger.controller.web.DocumentController.searchFileByCondition(com.lachesis.windranger.authentication.dbmodel.SysAttachment)
+[INFO] 2018-03-18 14:48:35,683 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/detail],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.lang.Object com.lachesis.windranger.controller.web.ProductController.getDetail(java.lang.String,java.lang.Long)
+[INFO] 2018-03-18 14:48:35,684 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/searchCondition],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.util.List<java.lang.String>> com.lachesis.windranger.controller.web.ProductController.getSearchConditionByType(java.lang.String)
+[INFO] 2018-03-18 14:48:35,684 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteResourceByCode(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,685 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/menu],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<java.lang.String> com.lachesis.windranger.controller.web.ProductController.getMenu(java.lang.String)
+[INFO] 2018-03-18 14:48:35,685 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addImmigration(com.lachesis.windranger.authentication.dbmodel.PrdImmigration)
+[INFO] 2018-03-18 14:48:35,685 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addCreditor(com.lachesis.windranger.authentication.dbmodel.PrdCreditor)
+[INFO] 2018-03-18 14:48:35,686 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addInsurance(com.lachesis.windranger.authentication.dbmodel.PrdInsurance)
+[INFO] 2018-03-18 14:48:35,686 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteFundByCode(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,686 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addEstate(com.lachesis.windranger.authentication.dbmodel.PrdEstate)
+[INFO] 2018-03-18 14:48:35,687 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdFund com.lachesis.windranger.controller.web.ProductController.getFundDetail(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,687 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdEstate com.lachesis.windranger.controller.web.ProductController.getEstateDetail(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,689 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.addFund(com.lachesis.windranger.authentication.dbmodel.PrdFund)
+[INFO] 2018-03-18 14:48:35,689 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdImmigration com.lachesis.windranger.controller.web.ProductController.getImmigrationDetail(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,690 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteImmigrationByCode(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,690 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdInsurance> com.lachesis.windranger.controller.web.ProductController.searchInsuranceByCondition(com.lachesis.windranger.authentication.dbmodel.PrdInsurance)
+[INFO] 2018-03-18 14:48:35,690 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/immigration/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdImmigration> com.lachesis.windranger.controller.web.ProductController.searchImmigrationByCondition(com.lachesis.windranger.authentication.dbmodel.PrdImmigration)
+[INFO] 2018-03-18 14:48:35,691 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/insurance/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdInsurance com.lachesis.windranger.controller.web.ProductController.getInsuranceDetail(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,691 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteEstateByCode(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,692 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdCreditor com.lachesis.windranger.controller.web.ProductController.getCreditorDetail(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,692 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ProductController.deleteCreditorByCode(java.lang.Long)
+[INFO] 2018-03-18 14:48:35,692 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/creditor/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdCreditor> com.lachesis.windranger.controller.web.ProductController.searchCreditorByCondition(com.lachesis.windranger.authentication.dbmodel.PrdCreditor)
+[INFO] 2018-03-18 14:48:35,693 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/estate/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdEstate> com.lachesis.windranger.controller.web.ProductController.searchEstateByCondition(com.lachesis.windranger.authentication.dbmodel.PrdEstate)
+[INFO] 2018-03-18 14:48:35,693 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/product/fund/search],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdFund> com.lachesis.windranger.controller.web.ProductController.searchFundByCondition(com.lachesis.windranger.authentication.dbmodel.PrdFund)
+[INFO] 2018-03-18 14:48:35,695 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/Reservation/product],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ReservationController.addReservation(com.lachesis.windranger.authentication.dbmodel.PrdReservation)
+[INFO] 2018-03-18 14:48:35,695 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/Reservation/product/{seqId}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.PrdReservation com.lachesis.windranger.controller.web.ReservationController.getPrdReservation(long)
+[INFO] 2018-03-18 14:48:35,696 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/Reservation/queryProduct],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.PrdReservation> com.lachesis.windranger.controller.web.ReservationController.queryReservationByCondition(com.lachesis.windranger.authentication.dbmodel.PrdReservation)
+[INFO] 2018-03-18 14:48:35,696 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/Reservation/product],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ReservationController.updateReservation(com.lachesis.windranger.authentication.dbmodel.PrdReservation)
+[INFO] 2018-03-18 14:48:35,699 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysResource com.lachesis.windranger.controller.web.ResourceController.addResource(com.lachesis.windranger.authentication.dbmodel.SysResource)
+[INFO] 2018-03-18 14:48:35,700 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources/{resourceCode}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.ResourceController.deleteResourceByCode(java.lang.String)
+[INFO] 2018-03-18 14:48:35,700 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysResource> com.lachesis.windranger.controller.web.ResourceController.getAllResources()
+[INFO] 2018-03-18 14:48:35,701 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/resources/{resourceCode}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysResource com.lachesis.windranger.controller.web.ResourceController.updateResource(java.lang.String,com.lachesis.windranger.authentication.dbmodel.SysResource)
+[INFO] 2018-03-18 14:48:35,706 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRole com.lachesis.windranger.controller.web.RoleController.addRole(com.lachesis.windranger.authentication.dbmodel.SysRole)
+[INFO] 2018-03-18 14:48:35,706 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysRole> com.lachesis.windranger.controller.web.RoleController.getAllRoles()
+[INFO] 2018-03-18 14:48:35,706 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles/{roleCode}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.RoleController.deleteRoleByCode(java.lang.String)
+[INFO] 2018-03-18 14:48:35,707 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/roles/{roleCode}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysRole com.lachesis.windranger.controller.web.RoleController.updateRole(java.lang.String,com.lachesis.windranger.authentication.dbmodel.SysRole)
+[INFO] 2018-03-18 14:48:35,709 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUser com.lachesis.windranger.controller.web.UserController.addUser(com.lachesis.windranger.authentication.dbmodel.SysUser)
+[INFO] 2018-03-18 14:48:35,710 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}/userResourceMappings],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysUserMapping> com.lachesis.windranger.controller.web.UserController.getSysUserMapByBean(java.lang.String)
+[INFO] 2018-03-18 14:48:35,710 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userResourceMappings/{seqId}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lachesis.windranger.controller.web.UserController.deleteSysUserMapBySeqId(long)
+[INFO] 2018-03-18 14:48:35,710 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUser com.lachesis.windranger.controller.web.UserController.getUserByUserCode(java.lang.String)
+[INFO] 2018-03-18 14:48:35,710 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}],methods=[DELETE],produces=[application/json;charset=UTF-8]}" onto public void com.lachesis.windranger.controller.web.UserController.deleteUserByCode(java.lang.String)
+[INFO] 2018-03-18 14:48:35,711 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users/{userCode}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public com.lachesis.windranger.authentication.dbmodel.SysUser com.lachesis.windranger.controller.web.UserController.updateUser(java.lang.String,com.lachesis.windranger.authentication.dbmodel.SysUser)
+[INFO] 2018-03-18 14:48:35,711 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/users],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public java.util.List<com.lachesis.windranger.authentication.dbmodel.SysUser> com.lachesis.windranger.controller.web.UserController.getAllUsers()
+[INFO] 2018-03-18 14:48:35,711 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userResourceMappings],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lachesis.windranger.controller.web.UserController.addSysUserMapByBean(com.lachesis.windranger.authentication.dbmodel.SysUserMapping)
+[INFO] 2018-03-18 14:48:35,712 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/authentication/userResourceMappings/{seqId}],methods=[PUT],produces=[application/json;charset=UTF-8]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lachesis.windranger.controller.web.UserController.updateSysUserMapByBean(long,com.lachesis.windranger.authentication.dbmodel.SysUserMapping)
+[INFO] 2018-03-18 14:48:35,712 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+[INFO] 2018-03-18 14:48:35,715 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+[INFO] 2018-03-18 14:48:35,715 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+[INFO] 2018-03-18 14:48:35,716 org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:543)
+	 Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+[INFO] 2018-03-18 14:48:35,879 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:534)
+	 Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sun Mar 18 14:48:34 CST 2018]; parent: Root WebApplicationContext
+[INFO] 2018-03-18 14:48:35,931 org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:341)
+	 Starting beans in phase 2147483647
+[INFO] 2018-03-18 14:48:35,931 springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:120)
+	 Context refreshed
+[INFO] 2018-03-18 14:48:36,175 springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:123)
+	 Found 1 custom documentation plugin(s)
+[INFO] 2018-03-18 14:48:36,192 springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)
+	 Scanning for api listing references
+[INFO] 2018-03-18 14:48:36,568 springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)
+	 Generating unique operation named: deleteResourceByCodeUsingDELETE_1
+[INFO] 2018-03-18 14:48:36,734 springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)
+	 Generating unique operation named: deleteResourceByCodeUsingDELETE_2
+[INFO] 2018-03-18 14:48:36,864 org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+	 FrameworkServlet 'SpringMVC': initialization completed in 2662 ms
+[INFO] 2018-03-18 14:48:52,217 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:48:52-------------------------------------
+Controller-Method: springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation
+Params    : 
+URI       : /windranger/v2/api-docs
+
+[INFO] 2018-03-18 14:48:52,424 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/v2/api-docs]execTime:205ms
+[INFO] 2018-03-18 14:48:58,892 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:48:58-------------------------------------
+Controller-Method: springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation
+Params    : 
+URI       : /windranger/v2/api-docs
+
+[INFO] 2018-03-18 14:48:58,905 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/v2/api-docs]execTime:13ms
+[WARN] 2018-03-18 14:49:10,523 org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1147)
+	 No mapping found for HTTP request with URI [/windranger/docs/images/throbber.gif] in DispatcherServlet with name 'SpringMVC'
+[INFO] 2018-03-18 14:49:21,211 com.lachesis.windranger.config.interceptor.CommonInteceptor.preHandle(CommonInteceptor.java:37)
+	 preHandle-----------------------2018-03-18 14:49:21-------------------------------------
+Controller-Method: com.lachesis.windranger.controller.web.UserController.getUserByUserCode
+Params    : 
+URI       : /windranger/authentication/users/123
+
+[INFO] 2018-03-18 14:49:21,390 com.lachesis.windranger.config.interceptor.CommonInteceptor.postHandle(CommonInteceptor.java:54)
+	 [/windranger/authentication/users/123]execTime:179ms

@@ -28,4 +28,12 @@
 			AND module_key = '${moduleKey}'
 		</if>
 	</select>
+	
+	<select id="getCompanyName" resultType="java.lang.String">
+		select distinct company_name from `sys_attachment`
+	</select>
+	
+	<select id="getSourceType" resultType="java.lang.String">
+		select distinct source_type from `sys_attachment`
+	</select>
 </mapper>

@@ -21,7 +21,7 @@
 
 		<!-- 数据库链接URL、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://10.2.3.77:3306/windranger_auth?characterEncoding=utf8"
+			connectionURL="jdbc:mysql://59.36.78.139:3306/kepler?characterEncoding=utf8"
 			userId="user" password="123456">
 
 			<property name="useInformationSchema" value="true" />
@@ -72,13 +72,16 @@
 		<table tableName="sys_user_mapping" domainObjectName="SysUserMapping" /> -->
 <!-- 		<table tableName="sys_app_version" domainObjectName="SysAppVersion" /> -->
 <!-- 		<table tableName="sys_attachment" domainObjectName="SysAttachment" /> -->
-		<table tableName="prd_insurance" domainObjectName="PrdInsurance" />
+<!-- 		<table tableName="prd_insurance" domainObjectName="PrdInsurance" /> -->
 <!-- 		<table tableName="prd_cat_mapping" domainObjectName="PrdCatMapping" /> -->
 <!-- 		<table tableName="cat_code_mapping" domainObjectName="CatCodeMapping" /> -->
-		<table tableName="prd_creditor" domainObjectName="PrdCreditor" />
-		<table tableName="prd_estate" domainObjectName="PrdEstate" />
-		<table tableName="prd_fund" domainObjectName="PrdFund" />
-		<table tableName="prd_immigration" domainObjectName="PrdImmigration" />
+<!-- 		<table tableName="prd_creditor" domainObjectName="PrdCreditor" /> -->
+<!-- 		<table tableName="prd_estate" domainObjectName="PrdEstate" /> -->
+<!-- 		<table tableName="prd_fund" domainObjectName="PrdFund" /> -->
+<!-- 		<table tableName="prd_immigration" domainObjectName="PrdImmigration" /> -->
+<!-- 		<table tableName="prd_reservation" domainObjectName="PrdReservation" /> -->
+		<table tableName="sys_image" domainObjectName="SysImage" />
+
 	</context>
 
 

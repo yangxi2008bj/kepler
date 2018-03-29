@@ -18,4 +18,11 @@ public interface IFileManager {
 	
 	void sendMail(MailDTO mailDTO);
 	
+	List<String> getCompanyName();
+	
+	List<String> getSourceType();
+	
+	Map<String, Object> uploadImage(MultipartFile file);
+	
+	void downloadImage(Long seqId, HttpServletResponse response);
 }
